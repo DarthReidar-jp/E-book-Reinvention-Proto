@@ -1,0 +1,58 @@
+.tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.node {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.node::before, .node::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  width: 0;
+  height: 20px;
+  border-left: 2px solid #666;
+}
+.node::after {
+  left: 50%;
+}
+.node::before {
+  right: 50%;
+}
+.node:first-child::before, .node:last-child::after {
+  display: none;
+}
+.node .child:first-child::after {
+  content: none;
+}
+.node .child:last-child::before {
+  content: none;
+}
+.node .child::after {
+  left: 0;
+}
+.node .child::before {
+  right: 0;
+}
+.node .leaf::before, .node .leaf::after {
+  display: none;
+}
+
+.child {
+  display: flex;
+  justify-content: space-between;
+}
+.child .child {
+  margin: 0 20px;
+}
+
+/*# sourceMappingURL=proto-writer-support.css.map */

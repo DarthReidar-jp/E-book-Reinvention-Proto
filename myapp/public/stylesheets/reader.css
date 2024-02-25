@@ -63,6 +63,7 @@ header .hamburger-btn, header .mode-btn {
   padding: 20px;
   width: 350px;
   z-index: 1000;
+  max-height: 100%;
 }
 
 /* サイドバーがアクティブなときのスタイル */
@@ -94,9 +95,17 @@ header .hamburger-btn, header .mode-btn {
 .main-content .card {
   padding: 30px 45px 30px 45px;
 }
-
-.title{
-  margin-bottom: 20px;
+.main-content .card .h2 {
+  font-size: 1.5rem;
+}
+.main-content .card .h3 {
+  font-size: 1.3rem;
+}
+.main-content .card .h4 {
+  font-size: 1.2rem;
+}
+.main-content .card .h5 {
+  font-size: 1.1rem;
 }
 
 /*# sourceMappingURL=reader.css.map */

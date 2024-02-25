@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc && sass ./src/stylesheets/:./public/stylesheets/",
     "start": "node ./dist/bin/www",
-    "dev": "nodemon ./src/bin/www",
+    "dev": " sass ./src/stylesheets/:./public/stylesheets/ && nodemon ./src/bin/www",
     "tsc": "tsc",
     "sass": "sass ./src/stylesheets/:./public/stylesheets/",
     "test": "echo \"Error: no test specified\" && exit 1"

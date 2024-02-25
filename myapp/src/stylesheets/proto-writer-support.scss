@@ -1,0 +1,76 @@
+$node-size: 100px;
+$node-border-color: #666;
+$line-color: #666;
+$line-thickness: 2px;
+$gap: 20px;
+
+.tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.node {
+  position: relative;
+  width: $node-size;
+  height: $node-size;
+  border: $line-thickness solid $node-border-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $gap;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    width: 0;
+    height: $gap;
+    border-left: $line-thickness solid $line-color;
+  }
+
+  &::after {
+    left: 50%;
+  }
+
+  &::before {
+    right: 50%;
+  }
+
+  &:first-child::before, &:last-child::after {
+    display: none;
+  }
+
+  .child {
+    &:first-child::after {
+      content: none;
+    }
+
+    &:last-child::before {
+      content: none;
+    }
+
+    &::after {
+      left: 0;
+    }
+
+    &::before {
+      right: 0;
+    }
+  }
+
+  .leaf {
+    &::before, &::after {
+      display: none;
+    }
+  }
+}
+
+.child {
+  display: flex;
+  justify-content: space-between;
+
+  .child {
+    margin: 0 $gap;
+  }
+}

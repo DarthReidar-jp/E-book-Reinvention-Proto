@@ -63,6 +63,7 @@ header .hamburger-btn, header .mode-btn {
   padding: 20px;
   width: 350px;
   z-index: 1000;
+  max-height: 100%;
 }
 
 /* サイドバーがアクティブなときのスタイル */

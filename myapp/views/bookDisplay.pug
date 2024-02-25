@@ -13,18 +13,10 @@ html
     header
       .container.row
         a.col-1.custom-btn(href='/writer') New book
-        form.col-4.search-form(method="GET", action="/treeSearch")
-          .search-input-group
-            input.search-form-control(type="text", name="query", placeholder="Search memos...")
-            .search-input-group-append
-              button.btn-search(type="submit") ツリーサーチ 
     .container-fluid
       .row
-        // サイドバー
-        .col-md-2.sidebar
-          .sidebar-content
         // メインコンテンツ
-        .col-md-10.main-content
+        .col-md-12.main-content
           .row
             .col-md-12
               .row
@@ -35,8 +27,6 @@ html
                         .book.d-flex.flex-column
                           .book-body.flex-fill
                             h5.book-title= book.title
-                            p.book-content= book.content
-                            //a.stretched-link(href=`/book/${book._id}`)
                             a.col-1.custom-btn(href=`/writer/${book._id}`) 書く
                             p |
                             a.col-1.custom-btn(href=`/reader/${book._id}`) 読む

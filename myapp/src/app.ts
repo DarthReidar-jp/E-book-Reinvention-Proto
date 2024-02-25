@@ -22,6 +22,9 @@ import writerRouter from './routes/writer';
 import bookDisplayRoter from './routes/bookDisplay';
 import readerRoter from'./routes/reader';
 
+//プロトタイプ用ルータモジュール
+import prototypeRoter from './routes/prototype-static';
+
 const app: Express = express(); // Express アプリケーションを作成
 
 // ビューエンジンの設定
@@ -48,6 +51,9 @@ app.use('/detail', detailRouter);
 app.use('/writer',writerRouter);
 app.use('/bookDisplay',bookDisplayRoter);
 app.use('/reader', readerRoter);
+
+//プロトタイプ用ルーター
+app.use('/proto',prototypeRoter);
 
 // 404 エラーのハンドリング
 app.use(function (req: Request, res: Response, next: NextFunction) {

@@ -1,0 +1,79 @@
+@charset "UTF-8";
+.main-content .card .card-body .content .text-background {
+  display: inline-block;
+  line-height: 1.01em;
+  background: #FFD9D7;
+}
+
+.mode-content {
+  position: fixed;
+  right: -350px;
+  transition: right 0.3s;
+  top: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  padding: 20px;
+  width: 350px;
+  z-index: 1000;
+  border-left: 1px #b8b8b8 solid;
+  max-height: 100%;
+}
+
+.mode-content-fixed {
+  position: fixed;
+}
+
+.mode-content-absolute {
+  position: absolute;
+}
+
+.mode-div#memoMode {
+  display: none; /* 初期状態では非表示 */
+  max-height: none; /* 最大の高さを無制限に設定 */
+  overflow: auto;
+}
+.mode-div#memoMode .card {
+  padding: 0%;
+}
+.mode-div#memoMode .card .text-background {
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1.01em;
+  background: #FFD9D7;
+}
+.mode-div#memoMode .card1 {
+  margin-top: 136px;
+}
+.mode-div#memoMode .card2 {
+  margin-top: 73px;
+}
+.mode-div#memoMode .card3 {
+  margin-top: 500px;
+}
+.mode-div#memoMode .card4 {
+  margin-top: 1273px;
+}
+.mode-div#memoMode .card5 {
+  margin-top: 1795px;
+}
+.mode-div#memoMode .card6 {
+  margin-top: 660px;
+}
+
+/* .mode-div#dictionaryModeのスタイル */
+.mode-div#dictionaryMode {
+  overflow-y: auto; /* 縦方向のスクロールバーを有効にする */
+  max-height: 100%;
+}
+.mode-div#dictionaryMode .card {
+  padding: 0%;
+  margin-bottom: 5%;
+}
+
+/* .mode-div#dictionaryModeのスタイル */
+.mode-div#indexMode {
+  overflow-y: auto; /* 縦方向のスクロールバーを有効にする */
+  max-height: 100%;
+}
+
+/*# sourceMappingURL=prototype.css.map */
