@@ -1,9 +1,13 @@
 
 
 //proto-reader
+.main-content{
+    margin-top: 100px;
+}
 .mode-active{
     .main-content{
         .card{
+            margin-top: 100px;
             .card-body{
                 .content{
                     .text-background{
@@ -35,6 +39,8 @@
 }
 .mode-content-absolute {
     position: absolute;
+    padding-top: 136px;
+    height: 200vh;
 }
 .mode-div#memoMode {
     display: none; /* 初期状態では非表示 */

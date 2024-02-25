@@ -1,4 +1,11 @@
 @charset "UTF-8";
+.main-content {
+  margin-top: 100px;
+}
+
+.mode-active .main-content .card {
+  margin-top: 100px;
+}
 .mode-active .main-content .card .card-body .content .text-background {
   display: inline-block;
   line-height: 1.01em;
@@ -25,6 +32,8 @@
 
 .mode-content-absolute {
   position: absolute;
+  padding-top: 136px;
+  height: 200vh;
 }
 
 .mode-div#memoMode {

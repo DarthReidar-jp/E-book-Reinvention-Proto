@@ -7,7 +7,7 @@ html
     link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.css")
     link(rel="stylesheet",href="/stylesheets/writer.css")
-    // ここにwriter.pug特有の追加のhead要素を記述 
+    link(rel='stylesheet', href='/stylesheets/proto-reader.css')
     script(src="https://code.jquery.com/jquery-3.6.0.min.js")
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous")
     script(src="/javascripts/sidebar.js")
@@ -19,6 +19,9 @@ html
           span メニュー
         button.mode-btn(type="button")
           span モード
+        button#showMemoBtn.mode-btn(type="button") メモを表示
+        button#showIndexBtn.mode-btn(type="button") 目次を表示
+        button#showDictionaryBtn.mode-btn(type="button") 辞書を表示
     .sidebar
       .sidebar-content
         a.custom-btn(href='/proto/bookDisplay') 本一覧 
@@ -27,27 +30,41 @@ html
         .col-md-8.main-content
             .card
                 .card-body
-                    h1.title  チベット仏教とダライラマの関係性
-                    .content
-                        h2 第1章
-                        h3 仏教の歴
+                .mode-div#indexModeHon(style='display:block;')
+                    image(src="/images/執筆本文.jpg",style='width:100%;')
+                .mode-div#memoModeHon(style='display:none;')
+                    image(src="/images/執筆モード本文2.jpg",style='width:100%;')
                         
         .col-3.mode-content 
-            .card
-                .card-body
-                    button#showMemoBtn メモを表示
-                    button#showIndexBtn 目次を表示
-                    button#showDictionaryBtn 辞書を表示
-                    .mode-div#memoMode(style='display:none;')
-                        .card.card1
-                            .card-body
-                                h5 ネパールで生まれた釈迦（シッダールタ・ゴータマ）
-                                p ルンビニー（現在のインドとネパールの国境付近にあった小国）生まれじゃない？
-                                p シッダールタとかは後からつけられた名前（創作である）             
-                    .mode-div#indexMode(style='display:none;')
-                    .mode-div#dictionaryMode(style='display:none;')
+          .mode-div#memoMode(style='display:none;')
+            image(src="/images/執筆メモモードのみ.jpg",style='width:100%;')
+          .mode-div#indexMode(style='display:none;')
+            image(src="/images/執筆目次モードのみ.jpg",style='width:100%;')
+          .mode-div#dictionaryMode(style='display:none;')
+            image(src="/images/執筆画面対話モード.jpg",style='width:100%;')
 
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.js")
-        script(src="/javascripts/writer.js")
-        script(src="/javascripts/changeMode.js")
- 
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.js")
+  script(src="/javascripts/writer.js")
+  script(src="/javascripts/changeMode.js")
+  script.
+    $(document).ready(function() {
+        $('#showMemoBtn').click(function() {
+            $('.mode-content').removeClass('mode-content-fixed').addClass('mode-content-absolute');
+            adjustMemoModeHeight();
+        });
+
+        $('#showIndexBtn, #showDictionaryBtn').click(function() {
+            $('.mode-content').removeClass('mode-content-absolute').addClass('mode-content-fixed');
+        });
+
+        function adjustMemoModeHeight() {
+            var mainContentHeight = $('.main-content').outerHeight();
+            $('.mode-content').css('height', mainContentHeight);
+        }
+
+        $(window).resize(function() {
+            if ($('.mode-content').hasClass('mode-content-absolute')) {
+            adjustMemoModeHeight();
+            }
+        });
+    });
